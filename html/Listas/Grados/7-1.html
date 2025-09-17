@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/Listas.css">
+  <title>Lista del grado 7-1</title>
+</head>
+
+<body>
+
+  <div class="banner">
+   <a id="inicioLink" class="grado-box">Inicio</a>
+    <a href="/html/Listas/Grados/6-1.html" class="grado-box">6-1</a>
+    <a href="/html/Listas/Grados/6-2.html" class="grado-box">6-2</a>
+    <a href="/html/Listas/Grados/7-1.html" class="grado-box">7-1</a>
+    <a href="/html/Listas/Grados/7-2.html" class="grado-box">7-2</a>
+    <a href="/html/Listas/Grados/8-1.html" class="grado-box">8-1</a>
+    <a href="/html/Listas/Grados/8-2.html" class="grado-box">8-2</a>
+    <a href="/html/Listas/Grados/9-1.html" class="grado-box">9-1</a>
+    <a href="/html/Listas/Grados/9-2.html" class="grado-box">9-2</a>
+    <a href="/html/Listas/Grados/10-1.html" class="grado-box">10-1</a>
+    <a href="/html/Listas/Grados/10-2.html" class="grado-box">10-2</a>
+    <a href="/html/Listas/Grados/11-1.html" class="grado-box">11-1</a>
+    <a href="/html/Listas/Grados/11-2.html" class="grado-box">11-2</a>
+  </div>
+
+  <div class="lista-estudiantes">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Programa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr onclick="mostrarInfo('est1')">
+          <td>Sofía Mejía</td>
+          <td>Restaurante</td>
+
+        </tr>
+        <tr onclick="mostrarInfo('est2')">
+          <td>Daniel Gómez</td>
+          <td>Restaurante</td>
+
+        </tr>
+        <tr onclick="mostrarInfo('est3')">
+          <td>Camila Ruiz</td>
+          <td>Restaurante</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="info-estudiante" id="info-estudiante">
+      <img id="foto" src="" alt="Foto del estudiante">
+      <div class="detalles">
+        <h3 id="nombre">Nombre del estudiante</h3>
+        <p id="programa">Programa: </p>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const estudiantes = {
+      est1: {
+        nombre: 'Sofía Mejía',
+        programa: 'Restaurante',
+        foto: '/Img/gaviria.jpeg' 
+      },
+      est2: {
+        nombre: 'Daniel Gómez',
+        programa: 'Restaurante',
+        foto: '/Img/eyes.jpeg'
+      },
+      est3: {
+        nombre: 'Camila Ruiz',
+        programa: 'Restaurante',
+        foto: '/Img/kiss.jpeg'
+      }
+    };
+
+    function mostrarInfo(id) {
+      const info = estudiantes[id];
+      const contenedor = document.getElementById('info-estudiante');
+      document.getElementById('foto').src = info.foto;
+      document.getElementById('nombre').textContent = info.nombre;
+      document.getElementById('programa').textContent = `Programa: ${info.programa}`;
+      contenedor.style.display = 'flex';
+    }
+  </script>
+
+    <script>
+  const origen = sessionStorage.getItem('origenSistema');
+  const inicioLink = document.getElementById('inicioLink');
+
+ 
+  if (origen) {
+    inicioLink.href = origen;
+  } else {
+    inicioLink.href = '/html/Sistema.html';
+  }
+</script>
+
+
+
+
+
+</body>
+
+</html>

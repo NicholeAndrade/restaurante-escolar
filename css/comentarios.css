@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fff4e6;
+}
+
+header {
+  background-color: #ff7f11;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.comentarios-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.comentario {
+  background-color: #fff0dc;
+  border-left: 5px solid #ff7f11;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comentario img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.comentario-content {
+  flex: 1;
+}
+
+.usuario {
+  font-weight: bold;
+  color: #d35400;
+  margin-bottom: 5px;
+}
+
+.texto {
+  color: #333;
+  font-size: 15px;
+}

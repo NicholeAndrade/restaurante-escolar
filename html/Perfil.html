@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Perfil del Usuario</title>
+  <link rel="stylesheet" href="/css/perfil.css">
+  <script src="/server.js"></script>
+</head>
+<body>
+  <div class="perfil-container">
+    <img id="fotoPerfil" src="/img_perfil/default.png" alt="Foto de perfil">
+    <h2 id="nombreUsuario">Cargando...</h2>
+
+    <button onclick="mostrarFormulario()">Cambiar contraseña</button>
+
+    <div id="formClave">
+      <input type="password" id="nuevaClave" placeholder="Nueva contraseña">
+      <button onclick="guardarClave()">Guardar</button>
+    </div>
+  </div>
+
+  <script>
+    const usuarioActual = localStorage.getItem("usuario"); 
+
+    if (!usuarioActual) {
+      alert("No has iniciado sesión");
+      window.location.href = "/html/inicio.html";
+    }
+
+    fetch("http://localhost:3000/obtener-datos-usuario", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ usuario: usuarioActual }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          document.getElementById("nombreUsuario").textContent = data.datos.nombre;
+          document.getElementById("fotoPerfil").src = "/" + data.datos.foto;
+        } else {
+          alert("No se encontraron los datos del usuario");
+        }
+      });
+
+    function mostrarFormulario() {
+      const form = document.getElementById("formClave");
+      form.style.display = form.style.display === "block" ? "none" : "block";
+    }
+
+    function guardarClave() {
+      const nuevaClave = document.getElementById("nuevaClave").value;
+      if (nuevaClave === "") {
+        alert("Por favor, escribe una nueva contraseña.");
+        return;
+      }
+
+     
+      alert("Contraseña cambiada exitosamente (simulado)");
+      document.getElementById("formClave").style.display = "none";
+      document.getElementById("nuevaClave").value = "";
+    }
+  </script>
+  scr  
+</body>
+</html>

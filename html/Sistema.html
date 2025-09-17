@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema profesor</title>
+  <link rel="stylesheet" href="/css/Sistema.css" />
+  <script type="module" src="/js/index.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="logo">Let's Eat</div>
+    <nav>
+      <a href="/html/Perfil.html">Perfil</a>
+      <a href="/html/inicio.html">Cerrar sesión</a>
+    </nav>
+  </header>
+
+  <div class="carousel-container">
+    <div class="carousel">
+      <img src="../img/Restaurante1.jpg" alt="Imagen 1" />
+      <img src="../img/Restaurante2.jpg" alt="Imagen 2" />
+      <img src="../img/Restaurante3.jpg" alt="Imagen 3" />
+    </div>
+
+    <div class="kishi">
+      <div class="trapecio">
+        <img src="/Img/proyecto.png" id="lola" />
+        <h1>Bienvenido al sistema</h1>
+        <h2 id="nombreUsuario" class="nombre-usuario"></h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider">
+    <span>Menú</span>
+  </div>
+
+<section class="cards-container" id="cards-container">
+  <div class="card">
+    <img src="../img/tofado.jpg" alt="Pide en el camino" />
+    <h3>Lunes</h3>
+    <p>Descripción de la comida blah blah blah</p>
+  </div>
+</section>
+
+
+  <div class="section-divider">
+    <span>Opciones</span>
+  </div>
+
+  <section class="pro-container">
+    <div class="pro" id="cuposBtn">
+      <div class="icon"><i class="fas fa-clipboard-check"></i></div>
+      <div class="text-content">
+        <div class="title">Cupos disponibles</div>
+        <div class="description">
+          Aquí podrás ver los cupos que están disponibles para ingresar al restaurante
+        </div>
+      </div>
+    </div>
+
+
+    <div class="pro">
+      <div class="icon"><i class="fas fa-file-alt"></i></div>
+      <div class="text-content">
+        <div class="title">Informaciones</div>
+        <div class="description">
+          Aquí podrás encontrar información sobre los horarios del restaurante y las novedadesf
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="popupOverlay" class="overlay"></div>
+  <div id="popupGrados" class="popup">
+    <h2>Selecciona el grado</h2>
+    <label for="opciones">Grado:</label>
+    <select id="opciones" required>
+      <option value="" disabled selected>Seleccionar</option>
+      <option value="6-1">6-1</option>
+      <option value="6-2">6-2</option>
+      <option value="7-1">7-1</option>
+      <option value="7-2">7-2</option>
+      <option value="8-1">8-1</option>
+      <option value="8-2">8-2</option>
+      <option value="9-1">9-1</option>
+      <option value="9-2">9-2</option>
+      <option value="10-1">10-1</option>
+      <option value="10-2">10-2</option>
+      <option value="11-1">11-1</option>
+      <option value="11-2">11-2</option>
+    </select>
+    <button id="aceptarPopup">Aceptar</button>
+  </div>
+
+  <div id="overlayCupos" class="overlay"></div>
+  <div id="cuposPopup" class="popup">
+    <div class="popup-content">
+      <h2>Cupos Disponibles</h2>
+      <p>Actualmente hay <strong>48</strong> cupos disponibles.</p>
+      <button onclick="cerrarCupos()">Aceptar</button>
+    </div>
+  </div>
+
+
+  <!-- Este es de los grados -->
+  <script>
+    const btnListas = document.getElementById('btnListas');
+    const popup = document.getElementById('popupGrados');
+    const overlay = document.getElementById('popupOverlay');
+    const select = document.getElementById('opciones');
+    const aceptarBtn = document.getElementById('aceptarPopup');
+
+    btnListas.addEventListener('click', () => {
+      popup.style.display = 'block';
+      overlay.style.display = 'block';
+    });
+
+    aceptarBtn.addEventListener('click', () => {
+      const grado = select.value;
+      if (grado) {
+        window.location.href = `/html/Listas/grados/${grado}.html`;
+      } else {
+        alert('Por favor selecciona un grado.');
+      }
+    });
+
+    overlay.addEventListener('click', () => {
+      popup.style.display = 'none';
+      overlay.style.display = 'none';
+    });
+  </script>
+
+  <!-- Este es el de los grupos -->
+  <script>
+    const btnCupos = document.getElementById("cuposBtn");
+    const popupCupos = document.getElementById("cuposPopup");
+    const overlayCupos = document.getElementById("overlayCupos");
+
+    btnCupos.addEventListener("click", () => {
+      popupCupos.style.display = "block";
+      overlayCupos.style.display = "block";
+    });
+
+    function cerrarCupos() {
+      popupCupos.style.display = "none";
+      overlayCupos.style.display = "none";
+    }
+
+    overlayCupos.addEventListener("click", cerrarCupos);
+  </script>
+
+  <script>
+    sessionStorage.setItem('origenSistema', window.location.pathname);
+  </script>
+
+  <!-- script para que aparezca el nombre de usuario en la pantalla de inicio -->
+  <script>
+    const usuarioActual = localStorage.getItem("usuario");
+
+    if (!usuarioActual) {
+      alert("No has iniciado sesión");
+      window.location.href = "/html/inicio.html";
+    }
+
+    fetch("http://localhost:3000/obtener-datos-usuario", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ usuario: usuarioActual }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          document.getElementById("nombreUsuario").textContent = data.datos.nombre;
+        } else {
+          alert("No se encontraron los datos del usuario");
+        }
+      })
+      .catch((error) => {
+        console.error("Error al obtener datos del usuario:", error);
+        alert("No se pudieron cargar los datos del usuario");
+      });
+  </script>
+
+</body>
+
+</html>
