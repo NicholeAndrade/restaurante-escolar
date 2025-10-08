@@ -374,3 +374,49 @@ a {
   cursor: pointer;
 }
 
+/* --- Ajustes para móviles --- */
+@media (max-width: 768px) {
+  /* Header */
+  header {
+    flex-direction: column; /* Logo arriba, menú abajo */
+    text-align: center;
+    padding: 10px;
+  }
+
+  header .logo {
+    margin-bottom: 10px; /* un poco de espacio antes del menú */
+    font-size: 1.5rem;    /* tamaño más manejable en móvil */
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column; /* los enlaces uno debajo del otro */
+    gap: 8px;
+  }
+
+  /* Bloque trapecio */
+  .trapecio {
+    flex-direction: column; /* apila logo + textos */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .trapecio h1 {
+    font-size: 2rem;
+    margin: 10px 0 5px 0; /* espacio entre el texto y el usuario */
+  }
+
+  .nombre-usuario {
+    margin: 0; /* quita el margin-left gigante */
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+  }
+
+  #lola {
+    margin: 0;  /* el logo del trapecio centrado */
+    width: 120px; /* opcional: controla el tamaño en móviles */
+  }
+}

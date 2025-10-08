@@ -38,13 +38,13 @@
     <span>Menú</span>
   </div>
 
-<section class="cards-container" id="cards-container">
-  <div class="card">
-    <img src="../img/tofado.jpg" alt="Pide en el camino" />
-    <h3>Lunes</h3>
-    <p>Descripción de la comida blah blah blah</p>
-  </div>
-</section>
+  <section class="cards-container" id="cards-container">
+    <div class="card">
+      <img src="../img/tofado.jpg" alt="Pide en el camino" />
+      <h3>Lunes</h3>
+      <p>Descripción de la comida blah blah blah</p>
+    </div>
+  </section>
 
 
   <div class="section-divider">
@@ -63,39 +63,19 @@
     </div>
 
 
-    <div class="pro">
+    <div class="pro" id="infoBtn">
       <div class="icon"><i class="fas fa-file-alt"></i></div>
       <div class="text-content">
         <div class="title">Informaciones</div>
         <div class="description">
-          Aquí podrás encontrar información sobre los horarios del restaurante y las novedadesf
+          Aquí podrás encontrar información sobre los horarios del restaurante y las novedades
         </div>
       </div>
     </div>
   </section>
 
-  <div id="popupOverlay" class="overlay"></div>
-  <div id="popupGrados" class="popup">
-    <h2>Selecciona el grado</h2>
-    <label for="opciones">Grado:</label>
-    <select id="opciones" required>
-      <option value="" disabled selected>Seleccionar</option>
-      <option value="6-1">6-1</option>
-      <option value="6-2">6-2</option>
-      <option value="7-1">7-1</option>
-      <option value="7-2">7-2</option>
-      <option value="8-1">8-1</option>
-      <option value="8-2">8-2</option>
-      <option value="9-1">9-1</option>
-      <option value="9-2">9-2</option>
-      <option value="10-1">10-1</option>
-      <option value="10-2">10-2</option>
-      <option value="11-1">11-1</option>
-      <option value="11-2">11-2</option>
-    </select>
-    <button id="aceptarPopup">Aceptar</button>
-  </div>
 
+  <!-- POP UPS -->
   <div id="overlayCupos" class="overlay"></div>
   <div id="cuposPopup" class="popup">
     <div class="popup-content">
@@ -105,36 +85,37 @@
     </div>
   </div>
 
+  <div id="overlayInfo" class="overlay"></div>
+  <div id="infoPopup" class="popup">
+    <div class="popup-content">
+      <h2>Informaciones</h2>
+      <p>No hay informaciones por el momento.</p>
+      <button onclick="cerrarInfo()">Aceptar</button>
+    </div>
+  </div>
 
-  <!-- Este es de los grados -->
+  
+
+  <!-- Este es de las informaciones -->
   <script>
-    const btnListas = document.getElementById('btnListas');
-    const popup = document.getElementById('popupGrados');
-    const overlay = document.getElementById('popupOverlay');
-    const select = document.getElementById('opciones');
-    const aceptarBtn = document.getElementById('aceptarPopup');
+    const btnInfo = document.getElementById("infoBtn");
+    const popupInfo = document.getElementById("infoPopup");
+    const overlayInfo = document.getElementById("overlayInfo");
 
-    btnListas.addEventListener('click', () => {
-      popup.style.display = 'block';
-      overlay.style.display = 'block';
+    btnInfo.addEventListener("click", () => {
+      popupInfo.style.display = "block";
+      overlayInfo.style.display = "block";
     });
 
-    aceptarBtn.addEventListener('click', () => {
-      const grado = select.value;
-      if (grado) {
-        window.location.href = `/html/Listas/grados/${grado}.html`;
-      } else {
-        alert('Por favor selecciona un grado.');
-      }
-    });
+    function cerrarInfo() {
+      popupInfo.style.display = "none";
+      overlayInfo.style.display = "none";
+    }
 
-    overlay.addEventListener('click', () => {
-      popup.style.display = 'none';
-      overlay.style.display = 'none';
-    });
+    overlayInfo.addEventListener("click", cerrarInfo);
   </script>
 
-  <!-- Este es el de los grupos -->
+  <!-- Este es el de los cupos -->
   <script>
     const btnCupos = document.getElementById("cuposBtn");
     const popupCupos = document.getElementById("cuposPopup");
