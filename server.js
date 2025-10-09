@@ -23,7 +23,7 @@ const db = mysql.createConnection({
   database: process.env.DB_NAME || "lets_eat",
   port: process.env.DB_PORT || 3306,
   ssl: {
-    rejectUnauthorized: true, // Aiven requiere SSL
+    rejectUnauthorized: false, // Aiven requiere SSL
   },
 });
 
