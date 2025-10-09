@@ -4,7 +4,7 @@ const mysql = require("mysql2");
 const path = require("path");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000;
 
 // Middleware
 app.use(cors());
@@ -15,24 +15,20 @@ app.use("/img_perfil", express.static(path.join(__dirname, "img_perfil")));
 app.use("/css", express.static(path.join(__dirname, "css")));
 app.use("/html", express.static(path.join(__dirname, "html"))); // HTML en carpeta html
 
-// Conexión a MySQL (usa variables del entorno)
+// Conexión a MySQL
 const db = mysql.createConnection({
-  host: process.env.DB_HOST || "localhost",
-  user: process.env.DB_USER || "root",
-  password: process.env.DB_PASS || "",
-  database: process.env.DB_NAME || "lets_eat",
-  port: process.env.DB_PORT || 3306,
-  ssl: {
-    rejectUnauthorized: true, // Aiven requiere SSL
-  },
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "lets_eat",
 });
 
 db.connect((err) => {
   if (err) {
-    console.error("❌ Error al conectar a MySQL:", err);
+    console.error("Error al conectar a MySQL:", err);
     return;
   }
-  console.log("✅ Conectado a MySQL (Aiven)");
+  console.log("Conectado a MySQL (lets_eat)");
 });
 
 // Ruta de login
@@ -62,7 +58,7 @@ app.post("/login", (req, res) => {
 // Ruta para obtener datos del usuario
 app.post("/obtener-datos-usuario", (req, res) => {
   const { usuario } = req.body;
-  const query = "SELECT nombre, Foto FROM usuarios WHERE usuario = ?";
+  const query = "SELECT nombre, foto FROM usuarios WHERE usuario = ?";
 
   db.query(query, [usuario], (err, results) => {
     if (err) {
@@ -71,9 +67,10 @@ app.post("/obtener-datos-usuario", (req, res) => {
     }
 
     if (results.length > 0) {
+      // Si no hay foto, asignar default.png
       const datos = {
         nombre: results[0].nombre,
-        foto: results[0].Foto ? results[0].Foto : "img_perfil/default.png",
+        foto: results[0].foto ? results[0].foto : "img_perfil/default.png",
       };
       res.json({ success: true, datos });
     } else {
@@ -84,5 +81,5 @@ app.post("/obtener-datos-usuario", (req, res) => {
 
 // Iniciar servidor
 app.listen(port, () => {
-  console.log(`Servidor corriendo en el puerto ${port}`);
+  console.log(`Servidor corriendo en http://localhost:${port}`);
 });
