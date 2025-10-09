@@ -82,6 +82,10 @@ app.post("/obtener-datos-usuario", (req, res) => {
   });
 });
 
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "html", "inicio.html"));
+});
+
 // Iniciar servidor
 app.listen(port, () => {
   console.log(`Servidor corriendo en el puerto ${port}`);
