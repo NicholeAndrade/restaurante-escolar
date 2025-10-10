@@ -18,7 +18,7 @@ app.use("/html", express.static(path.join(__dirname, "html")));
 
 // Ruta raíz para mostrar tu HTML principal
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "html", "inicio.html"));
+  res.sendFile(path.join(__dirname, "html", "index.html"));
 });
 
 // Conexión a MySQL (usa variables del entorno)

@@ -11,15 +11,9 @@ app.use(cors());
 app.use(express.json());
 
 // Servir archivos estáticos
-// Servir archivos estáticos
 app.use("/img_perfil", express.static(path.join(__dirname, "img_perfil")));
 app.use("/css", express.static(path.join(__dirname, "css")));
-app.use("/html", express.static(path.join(__dirname, "html"))); 
-
-// Ruta raíz para mostrar tu HTML principal
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "html", "inicio.html"));
-});
+app.use("/html", express.static(path.join(__dirname, "html"))); // HTML en carpeta html
 
 // Conexión a MySQL (usa variables del entorno)
 const db = mysql.createConnection({
