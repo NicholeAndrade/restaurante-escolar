@@ -15,6 +15,7 @@ app.use(express.json());
 app.use("/img_perfil", express.static(path.join(__dirname, "img_perfil")));
 app.use("/css", express.static(path.join(__dirname, "css")));
 app.use("/html", express.static(path.join(__dirname, "html"))); 
+app.use("/Img", express.static(path.join(__dirname, "Img")));
 
 app.get("/", (req, res) => {
   res.sendFile(path.resolve(__dirname, "html/inicio.html"));
