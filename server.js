@@ -1,22 +1,15 @@
 const express = require("express");
 const cors = require("cors");
+const mysql = require("mysql2");
+const path = require("path");
+const app = express();
+const port = process.env.PORT || 3000;
+
 app.use(
   cors({
     origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
-const mysql = require("mysql2");
-const path = require("path");
-
-const app = express();
-const port = process.env.PORT || 3000;
-
-// Middleware
-app.use(
-  cors({
-    origin: "*",
   })
 );
 app.use(express.json());
