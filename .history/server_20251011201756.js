@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors({
-  origin: "*" 
+  origin: "*" // Permite cualquier origen (útil para pruebas o Render)
 }));
 app.use(express.json());
 
