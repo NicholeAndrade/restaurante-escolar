@@ -1,13 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 const cors = require("cors");
-app.use(
-  cors({
-    origin: "*",
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 const mysql = require("mysql2");
 const path = require("path");
 
@@ -15,18 +13,16 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Middleware
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+app.use(cors({
+  origin: "*" 
+}));
 app.use(express.json());
 
 // Servir archivos estáticos
 // Servir archivos estáticos
 app.use("/img_perfil", express.static(path.join(__dirname, "img_perfil")));
 app.use("/css", express.static(path.join(__dirname, "css")));
-app.use("/html", express.static(path.join(__dirname, "html")));
+app.use("/html", express.static(path.join(__dirname, "html"))); 
 app.use("/Img", express.static(path.join(__dirname, "Img")));
 
 app.get("/", (req, res) => {
@@ -69,12 +65,7 @@ app.post("/login", (req, res) => {
 
     if (results.length > 0) {
       const nombre = results[0].nombre;
-      console.log("Login recibido:", {
-        usuario,
-        contrasena,
-        tipo_usuario,
-        nombre,
-      });
+      console.log("Login recibido:", { usuario, contrasena, tipo_usuario, nombre });
       res.json({ success: true, usuario });
     } else {
       res.json({ success: false, message: "Usuario o contraseña incorrectos" });
@@ -90,9 +81,7 @@ app.post("/obtener-datos-usuario", (req, res) => {
   db.query(query, [usuario], (err, results) => {
     if (err) {
       console.error("Error en la consulta:", err);
-      return res
-        .status(500)
-        .json({ success: false, message: "Error del servidor" });
+      return res.status(500).json({ success: false, message: "Error del servidor" });
     }
 
     if (results.length > 0) {
