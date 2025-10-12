@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <title>Perfil del Usuario</title>
   <link rel="stylesheet" href="/css/perfil.css">
   <script src="/server.js"></script>
 </head>
-
 <body>
   <div class="perfil-container">
     <img id="fotoPerfil" src="/Img_perfil/default.png" alt="Foto de perfil">
@@ -22,7 +20,7 @@
   </div>
 
   <script>
-    const usuarioActual = localStorage.getItem("usuario");
+    const usuarioActual = localStorage.getItem("usuario"); 
 
     if (!usuarioActual) {
       alert("No has iniciado sesión");
@@ -30,7 +28,7 @@
     }
 
     fetch("https://lets-eat-ezzn.onrender.com/login", {
-      method: "POST",
+                    method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -58,13 +56,12 @@
         return;
       }
 
-
+     
       alert("Contraseña cambiada exitosamente (simulado)");
       document.getElementById("formClave").style.display = "none";
       document.getElementById("nuevaClave").value = "";
     }
   </script>
-  scr
+  scr  
 </body>
-
 </html>

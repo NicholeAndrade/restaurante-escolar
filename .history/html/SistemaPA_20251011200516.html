@@ -15,7 +15,7 @@
     <nav>
       <a href="/html/Perfil.html">Perfil</a>
       <a href="/html/inicio.html">Cerrar sesión</a>
-
+      
     </nav>
   </header>
 
@@ -26,7 +26,7 @@
       <img src="/Img/Restaurante3.jpg" alt="Imagen 3" />
     </div>
 
-    <div class="kishi">
+   <div class="kishi">
       <div class="trapecio">
         <img src="/Img/proyecto.png" id="lola" />
         <h1>Bienvenido al sistema</h1>
@@ -40,19 +40,19 @@
   </div>
 
   <section class="cards-container" id="cards-container">
-    <div class="card">
-      <img src="/Img/tofado.jpg" alt="Pide en el camino" />
-      <h3>Lunes</h3>
-      <p>Descripción de la comida blah blah blah</p>
-    </div>
-  </section>
+  <div class="card">
+    <img src="/Img/tofado.jpg" alt="Pide en el camino" />
+    <h3>Lunes</h3>
+    <p>Descripción de la comida blah blah blah</p>
+  </div>
+</section>
 
   <div class="section-divider">
     <span>Opciones</span>
   </div>
 
   <section class="pro-container">
-
+   
     <div class="pro" id="btnListas">
       <div class="icon"><i class="fas fa-laptop-code"></i></div>
       <div class="text-content">
@@ -63,7 +63,7 @@
       </div>
     </div>
 
-
+    
     <div class="pro" id="cuposBtn">
       <div class="icon"><i class="fas fa-clipboard-check"></i></div>
       <div class="text-content">
@@ -74,18 +74,18 @@
       </div>
     </div>
 
-
-    <a href="/html/Comentarios.html" class="pro-link">
-      <div class="pro">
-        <div class="icon"><i class="fas fa-clipboard-check"></i></div>
-        <div class="text-content">
-          <div class="title">Comentarios</div>
-          <div class="description">
-            Aquí podrás escribir comentarios y leer los dejados por otros usuarios
-          </div>
-        </div>
+    
+ <a href="/html/Comentarios.html" class="pro-link">
+  <div class="pro">
+    <div class="icon"><i class="fas fa-clipboard-check"></i></div>
+    <div class="text-content">
+      <div class="title">Comentarios</div>
+      <div class="description">
+        Aquí podrás escribir comentarios y leer los dejados por otros usuarios
       </div>
-    </a>
+    </div>
+  </div>
+</a>
 
 
   </section>
@@ -167,7 +167,7 @@
 
     overlayCupos.addEventListener("click", cerrarCupos);
   </script>
-
+  
   <script>
     sessionStorage.setItem('origenSistema', window.location.pathname);
   </script>
@@ -182,7 +182,7 @@
     }
 
     fetch("https://lets-eat-ezzn.onrender.com/login", {
-      method: "POST",
+                    method: "POST",
       headers: {
         "Content-Type": "application/json",
       },

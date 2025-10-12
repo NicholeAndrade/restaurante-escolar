@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ingreso al sistema profesor</title>
+  <title>Ingreso al sistema estudiante_am_pm</title>
   <link rel="stylesheet" href="/css/inicio.css">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
@@ -23,7 +23,7 @@
 
   <main class="main">
     <div class="logo-container">
-      <img id="Pascual-2" src="/Img/proyecto.png" alt="Logo del proyecto">
+      <img id="Pascual-2" src="/Img/Proyecto.png" alt="Logo del proyecto">
     </div>
 
     <div class="login-box">
@@ -44,9 +44,6 @@
       </form>
     </div>
 
-
-
-
     <script>
       const form = document.getElementById('loginForm');
 
@@ -55,32 +52,25 @@
 
         const username = document.getElementById('username').value.trim();
         const password = document.getElementById('password').value.trim();
-        const tipo_usuario = 'profesor';
 
-        try {
-          const response = await fetch("https://lets-eat-ezzn.onrender.com/login", {
-            method: "POST",
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              usuario: username,
-              contrasena: password,
-              tipo_usuario
-            })
-          });
+        const tipo_usuario = 'estudiante_ampm';
 
-          const data = await response.json();
+        const response = await fetch('http://localhost:3000/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ usuario: username, contrasena: password, tipo_usuario })
+        });
 
-          if (data.success) {
-            localStorage.setItem("usuario", username);
-            window.location.href = './Sistema.html';
-          } else {
-            alert(data.message || 'Usuario o contraseña incorrectos');
-          }
-        } catch (err) {
-          console.error('Fetch error:', err);
-          alert('No se pudo conectar al servidor');
+        const data = await response.json();
+
+        if (data.success) {
+          localStorage.setItem("usuario", username);
+          window.location.href = './SistemaAm.html';
+        } else {
+          alert(data.message || 'Usuario o contraseña incorrectos');
         }
       });
+
 
       const togglePassword = document.getElementById('togglePassword');
       const passwordField = document.getElementById('password');

@@ -55,8 +55,8 @@
 
                 const tipo_usuario = 'profesor_acargo';
 
-                const response = await fetch("https://lets-eat-ezzn.onrender.com/login", {
-                    method: "POST",
+                const response = await fetch('http://localhost:3000/login', {
+                    method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ usuario: username, contrasena: password, tipo_usuario })
                 });
