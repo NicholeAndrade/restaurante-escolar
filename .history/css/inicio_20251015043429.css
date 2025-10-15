@@ -78,8 +78,8 @@ body::before {
 
 
 #Pascual {
-    width: 150px;
-    height: auto;
+    width: 200px;
+    height: 200px;
     margin-left: -150px;
 }
 
@@ -252,16 +252,17 @@ footer {
     background: #d35400; 
 }
 
+
+
 #Pascual-2{
-    width: 100px;
-    height: auto;
-    margin-bottom: 240px;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 260px;
     margin-left: -150px;
 }
 
 .logo-2{
-    width: 90px;
-    height: auto;
+    height: 100px;
 }
 
 .btn-orangie {
@@ -300,106 +301,44 @@ footer {
 }
 
 /* Ajustes solo para móviles */
-
 @media (max-width: 768px) {
-
-  body {
-    background-size: cover;
-    overflow-y: auto; 
-  }
-
-  .header {
-    flex-direction: column;
-    padding: 15px;
-    gap: 10px;
-  }
-  
-  .main {
-    padding: 20px 10px;
-    height: auto;
-  }
-
-  .main h1 {
-    margin-top: -30px;
-    font-size: 2rem;
-  }
-
-  .buttons button {
-    width: 80%;
-    max-width: 250px;
-    margin: 10px auto;
-    display: block;
-    font-size: 1rem;
-  }
-
-
-  #Pascual,
-  #Pascual-2 {
-    margin-top: -90px;
-    display: block;
-    margin: 30px ;
-    margin-top: 10px;
-    margin-bottom: -10px;
-    width: 150px;
-    height: auto;
-  }
-
-  .logo-container {
-    position: static;
-    margin-top: -90px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
+  /* Texto "Let's Eat" centrado */
   .Tittle,
   .Tittle-2 {
-    margin: 10px 0;
-    text-align: center;
-  }
-
- 
-  .user-selection-box,
-  .login-box {
-    width: 90%;
-    max-width: 350px;
-    margin: 20px auto;
-    padding: 20px;
-  }
-  
-  .user-selection-box p {
-    font-size: 14px;
-  }
-
-  .user-selection-box select,
-  .login-box input {
-    width: 100%;
-    font-size: 14px;
-  }
-
-  .user-selection-box .submit-btn,
-  .login-box button {
-    width: 100%;
-    padding: 12px;
-    font-size: 15px;
-  }
-
- 
-  footer {
-    font-size: 13px;
-    padding: 10px;
-  }
-
-
-  #shimi {
-    width: 40px;
-    height: 40px;
     margin: 0;
+    margin-top: 100px;
   }
-  
-  html, body {
-    overflow-x: hidden;
+
+  /* Logo principal */
+  #Pascual,
+  #Pascual-2 {
+    position: static;    
+    margin: 20px auto;   
+    display: block;
+    width: 220px;       
+    height: auto;
   }
+
+  /* Logo pequeño de dentro del cuadro */
+  .user-selection-box .logo,
+  .login-box .logo-2 {
+    width: 100px; /* más visible en móvil */
+    height: auto;
+  }
+
+  .login-box {
+    width: 350px; 
+    background: #ffa600e9; 
+    border-radius: 15px; 
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top:90px ;
 }
 
+
+
+
+
+}
 
 

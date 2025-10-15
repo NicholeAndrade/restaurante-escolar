@@ -78,8 +78,8 @@ body::before {
 
 
 #Pascual {
-    width: 150px;
-    height: auto;
+    width: 200px;
+    height: 200px;
     margin-left: -150px;
 }
 
@@ -252,16 +252,17 @@ footer {
     background: #d35400; 
 }
 
+
+
 #Pascual-2{
-    width: 100px;
-    height: auto;
-    margin-bottom: 240px;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 260px;
     margin-left: -150px;
 }
 
 .logo-2{
-    width: 90px;
-    height: auto;
+    height: 100px;
 }
 
 .btn-orangie {
@@ -300,12 +301,10 @@ footer {
 }
 
 /* Ajustes solo para móviles */
-
 @media (max-width: 768px) {
-
   body {
     background-size: cover;
-    overflow-y: auto; 
+    overflow-y: auto;
   }
 
   .header {
@@ -313,59 +312,34 @@ footer {
     padding: 15px;
     gap: 10px;
   }
-  
+
   .main {
     padding: 20px 10px;
     height: auto;
   }
 
   .main h1 {
-    margin-top: -30px;
     font-size: 2rem;
   }
 
-  .buttons button {
-    width: 80%;
-    max-width: 250px;
-    margin: 10px auto;
-    display: block;
-    font-size: 1rem;
-  }
-
-
   #Pascual,
   #Pascual-2 {
-    margin-top: -90px;
-    display: block;
-    margin: 30px ;
     margin-top: 10px;
-    margin-bottom: -10px;
     width: 150px;
-    height: auto;
   }
 
-  .logo-container {
-    position: static;
-    margin-top: -90px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .Tittle,
-  .Tittle-2 {
-    margin: 10px 0;
-    text-align: center;
-  }
-
- 
   .user-selection-box,
   .login-box {
     width: 90%;
     max-width: 350px;
-    margin: 20px auto;
+    margin: 30px auto;
     padding: 20px;
   }
-  
+
+  .user-selection-box h2 {
+    font-size: 20px;
+  }
+
   .user-selection-box p {
     font-size: 14px;
   }
@@ -383,23 +357,37 @@ footer {
     font-size: 15px;
   }
 
- 
   footer {
     font-size: 13px;
     padding: 10px;
   }
-
 
   #shimi {
     width: 40px;
     height: 40px;
     margin: 0;
   }
-  
-  html, body {
+
+  html,
+  body {
     overflow-x: hidden;
   }
 }
 
+/* === PANTALLAS MEDIANAS (TABLETS GRANDES O LAPTOPS PEQUEÑAS) === */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .header {
+    padding: 20px 40px;
+  }
+
+  .main h1 {
+    font-size: 2.5rem;
+  }
+
+  .user-selection-box,
+  .login-box {
+    width: 60%;
+  }
+}
 
 

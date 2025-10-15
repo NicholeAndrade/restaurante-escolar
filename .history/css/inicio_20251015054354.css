@@ -78,7 +78,7 @@ body::before {
 
 
 #Pascual {
-    width: 150px;
+    width: 200px;
     height: auto;
     margin-left: -150px;
 }
@@ -252,16 +252,17 @@ footer {
     background: #d35400; 
 }
 
+
+
 #Pascual-2{
-    width: 100px;
-    height: auto;
-    margin-bottom: 240px;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 260px;
     margin-left: -150px;
 }
 
 .logo-2{
-    width: 90px;
-    height: auto;
+    height: 100px;
 }
 
 .btn-orangie {

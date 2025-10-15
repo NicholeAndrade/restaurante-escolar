@@ -208,7 +208,8 @@ footer {
 }
 
 
-.login-box {
+.login-box
+ {
     width: 350px; 
     background: #ffa600e9; 
     border-radius: 15px; 
@@ -252,17 +253,16 @@ footer {
     background: #d35400; 
 }
 
+
+
 #Pascual-2{
-    width: 100px;
-    height: auto;
-    margin-bottom: 240px;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 260px;
     margin-left: -150px;
 }
 
-.logo-2{
-    width: 90px;
-    height: auto;
-}
+
 
 .btn-orangie {
   display: inline-block;

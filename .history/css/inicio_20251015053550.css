@@ -78,8 +78,8 @@ body::before {
 
 
 #Pascual {
-    width: 150px;
-    height: auto;
+    width: 200px;
+    height: 200px;
     margin-left: -150px;
 }
 
@@ -252,16 +252,17 @@ footer {
     background: #d35400; 
 }
 
+
+
 #Pascual-2{
-    width: 100px;
-    height: auto;
-    margin-bottom: 240px;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 260px;
     margin-left: -150px;
 }
 
 .logo-2{
-    width: 90px;
-    height: auto;
+    height: 100px;
 }
 
 .btn-orangie {
@@ -305,69 +306,82 @@ footer {
 
   body {
     background-size: cover;
-    overflow-y: auto; 
+    overflow-y: auto; /* permite scroll en móvil */
+    text-align: center;
   }
 
+  /* --- CABECERA --- */
   .header {
     flex-direction: column;
-    padding: 15px;
-    gap: 10px;
+    align-items: center;
+    padding: 15px 0;
+    gap: 8px;
   }
-  
+
+  .header .logo {
+    font-size: 1.2rem;
+  }
+
+  .header a {
+    font-size: 0.9rem;
+  }
+
+  /* --- SECCIÓN PRINCIPAL --- */
   .main {
-    padding: 20px 10px;
+    padding: 10px 15px 80px 15px; /* deja espacio para el footer */
     height: auto;
-  }
-
-  .main h1 {
-    margin-top: -30px;
-    font-size: 2rem;
-  }
-
-  .buttons button {
-    width: 80%;
-    max-width: 250px;
-    margin: 10px auto;
-    display: block;
-    font-size: 1rem;
-  }
-
-
-  #Pascual,
-  #Pascual-2 {
-    margin-top: -90px;
-    display: block;
-    margin: 30px ;
-    margin-top: 10px;
-    margin-bottom: -10px;
-    width: 150px;
-    height: auto;
-  }
-
-  .logo-container {
-    position: static;
-    margin-top: -90px;
-    margin: 0 auto;
-    text-align: center;
   }
 
   .Tittle,
   .Tittle-2 {
-    margin: 10px 0;
+    margin: 15px 0;
     text-align: center;
   }
 
- 
+  .main h1 {
+    margin: 0;
+    font-size: 2rem;
+  }
+
+  /* --- LOGO PRINCIPAL --- */
+  .logo-container {
+    position: static;
+    margin: 10px auto;
+    text-align: center;
+  }
+
+  #Pascual,
+  #Pascual-2 {
+    display: block;
+    margin: 0 auto 10px auto;
+    width: 160px;
+    height: auto;
+  }
+
+  /* --- CAJA DE SELECCIÓN --- */
   .user-selection-box,
   .login-box {
     width: 90%;
     max-width: 350px;
-    margin: 20px auto;
+    margin: 25px auto;
     padding: 20px;
+    box-sizing: border-box;
   }
-  
+
+  .user-selection-box img.logo {
+    width: 90px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .user-selection-box h2 {
+    font-size: 20px;
+    color: #006400;
+  }
+
   .user-selection-box p {
     font-size: 14px;
+    color: #333;
   }
 
   .user-selection-box select,
@@ -381,25 +395,38 @@ footer {
     width: 100%;
     padding: 12px;
     font-size: 15px;
+    border-radius: 8px;
   }
 
- 
+  /* --- FOOTER --- */
   footer {
     font-size: 13px;
     padding: 10px;
+    position: static;
+    background-color: #f5f5dc76;
+    color: black;
+    width: 100%;
+    margin-top: 20px;
   }
-
 
   #shimi {
     width: 40px;
     height: 40px;
-    margin: 0;
+    vertical-align: middle;
+    margin-left: 5px;
   }
-  
+
+  /* --- BOTONES SI LOS HUBIERA --- */
+  .buttons button {
+    width: 80%;
+    max-width: 250px;
+    margin: 10px auto;
+    display: block;
+    font-size: 1rem;
+  }
+
+  /* --- EVITAR DESBORDES --- */
   html, body {
     overflow-x: hidden;
   }
 }
-
-
-
