@@ -147,13 +147,14 @@
       window.location.href = "/html/inicio.html";
     }
 
-    fetch("https://lets-eat-ezzn.onrender.com/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ usuario: usuarioActual }),
-    })
+fetch("http://localhost:3000/obtener-datos-usuario", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ usuario: usuarioActual }),
+})
+
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
