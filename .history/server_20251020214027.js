@@ -60,8 +60,6 @@ app.post("/obtener-datos-usuario", (req, res) => {
   const { usuario } = req.body;
   const query = "SELECT nombre, foto FROM usuarios WHERE usuario = ?";
 
-  console.log("Datos recibidos en /login:", req.body);
-
   db.query(query, [usuario], (err, results) => {
     if (err) {
       console.error("Error en la consulta:", err);

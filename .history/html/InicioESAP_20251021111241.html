@@ -56,7 +56,8 @@
         const tipo_usuario = 'estudiante_ampm';
 
         
-         const response = await fetch("http://localhost:3000/login", {
+        fetch("http://localhost:3000/login", {
+
           method: "POST",
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ usuario: username, contrasena: password, tipo_usuario })
