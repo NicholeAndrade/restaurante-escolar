@@ -4,7 +4,7 @@ const mysql = require("mysql2");
 const path = require("path");
 
 const app = express();
-const port = process.env.PORT || 3000; // puerto dinámico para hosting
+const port = 3000;
 
 // Middleware
 app.use(cors());
@@ -15,12 +15,12 @@ app.use("/img_perfil", express.static(path.join(__dirname, "img_perfil")));
 app.use("/css", express.static(path.join(__dirname, "css")));
 app.use("/html", express.static(path.join(__dirname, "html"))); // HTML en carpeta html
 
-// Conexión a MySQL usando variables de entorno
+// Conexión a MySQL
 const db = mysql.createConnection({
-  host: process.env.DB_HOST || "localhost",
-  user: process.env.DB_USER || "root",
-  password: process.env.DB_PASS || "",
-  database: process.env.DB_NAME || "lets_eat",
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "lets_eat",
 });
 
 db.connect((err) => {
@@ -28,7 +28,7 @@ db.connect((err) => {
     console.error("Error al conectar a MySQL:", err);
     return;
   }
-  console.log("Conectado a MySQL");
+  console.log("Conectado a MySQL (lets_eat)");
 });
 
 // Ruta de login
@@ -60,17 +60,16 @@ app.post("/obtener-datos-usuario", (req, res) => {
   const { usuario } = req.body;
   const query = "SELECT nombre, foto FROM usuarios WHERE usuario = ?";
 
-  console.log("Datos recibidos en /obtener-datos-usuario:", req.body);
+  console.log("Datos recibidos en /login:", req.body);
 
   db.query(query, [usuario], (err, results) => {
     if (err) {
       console.error("Error en la consulta:", err);
-      return res
-        .status(500)
-        .json({ success: false, message: "Error del servidor" });
+      return res.status(500).json({ success: false, message: "Error del servidor" });
     }
 
     if (results.length > 0) {
+      // Si no hay foto, asignar default.png
       const datos = {
         nombre: results[0].nombre,
         foto: results[0].foto ? results[0].foto : "img_perfil/default.png",
@@ -84,5 +83,5 @@ app.post("/obtener-datos-usuario", (req, res) => {
 
 // Iniciar servidor
 app.listen(port, () => {
-  console.log(`Servidor corriendo en el puerto ${port}`);
+  console.log(`Servidor corriendo en http://localhost:${port}`);
 });
