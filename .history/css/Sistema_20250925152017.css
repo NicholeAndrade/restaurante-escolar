@@ -416,7 +416,7 @@ a {
   }
 
   #lola {
-    margin: 0;  
-    width: 120px; 
+    margin: 0;  /* el logo del trapecio centrado */
+    width: 120px; /* opcional: controla el tamaño en móviles */
   }
 }

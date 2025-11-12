@@ -80,7 +80,12 @@ app.post("/obtener-datos-usuario", (req, res) => {
     }
   });
 });
-// === RUTAS PARA ADMINISTRADOR ===
+
+// Iniciar servidor
+app.listen(port, () => {
+  console.log(`Servidor corriendo en http://localhost:${port}`);
+});
+// --- Rutas para el panel del Administrador ---
 
 // Obtener todos los usuarios
 app.get("/usuarios", (req, res) => {
@@ -88,44 +93,39 @@ app.get("/usuarios", (req, res) => {
   db.query(query, (err, results) => {
     if (err) {
       console.error("Error al obtener usuarios:", err);
-      return res.status(500).json({ success: false, message: "Error al obtener usuarios" });
+      return res.status(500).json({ error: "Error al obtener usuarios" });
     }
     res.json(results);
   });
 });
 
-// Actualizar usuario
+// Actualizar usuario por ID
 app.put("/usuarios/:id", (req, res) => {
   const { id } = req.params;
-  const { usuario, contrasena, tipo, nombre, Foto } = req.body;
-  const query = `
-    UPDATE usuarios
-    SET usuario = ?, contrasena = ?, tipo = ?, nombre = ?, foto = ?
-    WHERE id = ?
-  `;
-  db.query(query, [usuario, contrasena, tipo, nombre, Foto, id], (err, result) => {
+  const { usuario, contrasena, tipo, nombre, foto } = req.body;
+
+  const query =
+    "UPDATE usuarios SET usuario = ?, contrasena = ?, tipo = ?, nombre = ?, foto = ? WHERE id = ?";
+
+  db.query(query, [usuario, contrasena, tipo, nombre, foto, id], (err, result) => {
     if (err) {
       console.error("Error al actualizar usuario:", err);
-      return res.status(500).json({ success: false, message: "Error al actualizar usuario" });
+      return res.status(500).json({ error: "Error al actualizar usuario" });
     }
-    res.json({ success: true, message: "Usuario actualizado correctamente" });
+    res.json({ message: "Usuario actualizado correctamente" });
   });
 });
 
-// Eliminar usuario
+// Eliminar usuario por ID
 app.delete("/usuarios/:id", (req, res) => {
   const { id } = req.params;
   const query = "DELETE FROM usuarios WHERE id = ?";
+
   db.query(query, [id], (err, result) => {
     if (err) {
       console.error("Error al eliminar usuario:", err);
-      return res.status(500).json({ success: false, message: "Error al eliminar usuario" });
+      return res.status(500).json({ error: "Error al eliminar usuario" });
     }
-    res.json({ success: true, message: "Usuario eliminado correctamente" });
+    res.json({ message: "Usuario eliminado correctamente" });
   });
-});
-
-// Iniciar servidor
-app.listen(port, () => {
-  console.log(`Servidor corriendo en http://localhost:${port}`);
 });

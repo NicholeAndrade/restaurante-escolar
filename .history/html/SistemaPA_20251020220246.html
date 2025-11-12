@@ -14,7 +14,7 @@
     <div class="logo">Let's Eat</div>
     <nav>
       <a href="/html/Perfil.html">Perfil</a>
-      <a href="/html/index.html">Cerrar sesión</a>
+      <a href="/html/inicio.html">Cerrar sesión</a>
 
     </nav>
   </header>
@@ -172,13 +172,13 @@
     sessionStorage.setItem('origenSistema', window.location.pathname);
   </script>
 
-  <!-- script para que aparezca el nombre de usuario en la pantalla de index -->
+  <!-- script para que aparezca el nombre de usuario en la pantalla de inicio -->
   <script>
     const usuarioActual = localStorage.getItem("usuario");
 
     if (!usuarioActual) {
       alert("No has iniciado sesión");
-      window.location.href = "/html/index.html";
+      window.location.href = "/html/inicio.html";
     }
 
     fetch("http://localhost:3000/obtener-datos-usuario", {

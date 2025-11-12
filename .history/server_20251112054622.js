@@ -80,50 +80,8 @@ app.post("/obtener-datos-usuario", (req, res) => {
     }
   });
 });
-// === RUTAS PARA ADMINISTRADOR ===
 
-// Obtener todos los usuarios
-app.get("/usuarios", (req, res) => {
-  const query = "SELECT * FROM usuarios";
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error("Error al obtener usuarios:", err);
-      return res.status(500).json({ success: false, message: "Error al obtener usuarios" });
-    }
-    res.json(results);
-  });
-});
 
-// Actualizar usuario
-app.put("/usuarios/:id", (req, res) => {
-  const { id } = req.params;
-  const { usuario, contrasena, tipo, nombre, Foto } = req.body;
-  const query = `
-    UPDATE usuarios
-    SET usuario = ?, contrasena = ?, tipo = ?, nombre = ?, foto = ?
-    WHERE id = ?
-  `;
-  db.query(query, [usuario, contrasena, tipo, nombre, Foto, id], (err, result) => {
-    if (err) {
-      console.error("Error al actualizar usuario:", err);
-      return res.status(500).json({ success: false, message: "Error al actualizar usuario" });
-    }
-    res.json({ success: true, message: "Usuario actualizado correctamente" });
-  });
-});
-
-// Eliminar usuario
-app.delete("/usuarios/:id", (req, res) => {
-  const { id } = req.params;
-  const query = "DELETE FROM usuarios WHERE id = ?";
-  db.query(query, [id], (err, result) => {
-    if (err) {
-      console.error("Error al eliminar usuario:", err);
-      return res.status(500).json({ success: false, message: "Error al eliminar usuario" });
-    }
-    res.json({ success: true, message: "Usuario eliminado correctamente" });
-  });
-});
 
 // Iniciar servidor
 app.listen(port, () => {

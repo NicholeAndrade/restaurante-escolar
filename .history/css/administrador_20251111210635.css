@@ -1,0 +1,257 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  position: relative;
+  background-color: rgb(249, 249, 249);
+   margin: 0;
+   padding: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/Img/Cubiertos.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.3; /* Ajusta aquí la opacidad */
+  z-index: -1;
+}
+
+header{ 
+  background-color:#046c4e;; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  border-bottom: 2px rgb(178, 251, 210);
+  background-image: url('/Img/cubiertos.png');
+}
+
+header .logo {
+  font-weight: bold;
+  color: white;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: rgb(248, 237, 232);
+}
+
+
+/* Aqui empiza la editacion de mi precioso y hermoso carrucel (tu no tienes esta 😝) */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: fade 15s infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.carousel img:nth-child(1) {
+  animation-delay: 0s;
+}
+.carousel img:nth-child(2) {
+  animation-delay: 5s;
+}
+.carousel img:nth-child(3) {
+  animation-delay: 10s;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+  }
+  38% {
+    opacity: 0.8;
+  }
+  45% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+/* aqui hay un triangulo, si no sabe de figuras geometricas,no opine */
+
+.trapecio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;         
+  height: 100%;        
+  background-color: rgba(134, 185, 150, 0.7);  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trapecio h1 {
+  color: white;
+  font-size: 3rem;
+  margin-left: 0;      
+}
+
+h2 {
+  color: #ff5733;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.nombre-usuario {
+  margin-top: 150px;
+  margin-left: -500px ;
+  font-size: 2rem;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: white;
+  text-align: center;
+}
+#lola{
+  margin-left: -500px;
+}
+
+/* ---- Panel Admin ---- */
+.panel-admin {
+  width: 90%;
+  margin: 40px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.titulo-admin {
+  text-align: center;
+  color: #ff7b00;
+  margin-bottom: 20px;
+}
+
+.tabla-container {
+  overflow-x: auto;
+}
+
+#tablaUsuarios {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+#tablaUsuarios th {
+  background-color: #f7c325;
+  color: #000;
+  padding: 10px;
+  text-align: left;
+}
+
+#tablaUsuarios td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+#tablaUsuarios tr:hover {
+  background-color: #f5f5f5;
+}
+
+button.editar, button.eliminar {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+}
+
+button.editar {
+  background-color: #4CAF50;
+}
+
+button.eliminar {
+  background-color: #e63946;
+}
+
+/* ---- Modal ---- */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-contenido {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 350px;
+}
+
+.modal-contenido label {
+  display: block;
+  margin-top: 8px;
+}
+
+.modal-contenido input {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.modal-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.guardar {
+  background-color: #ff7b00;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.cancelar {
+  background-color: #999;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+}

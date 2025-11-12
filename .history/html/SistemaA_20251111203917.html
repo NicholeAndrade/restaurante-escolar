@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Panel Administrador — Restaurante</title>
+  <link rel="stylesheet" href="/css/administrador.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="/assets/logo.png" alt="logo" class="logo" />
+      <h1>Panel Administrador</h1>
+    </div>
+
+    <nav class="nav-actions">
+      <button id="btn-profile" class="btn small">Perfil</button>
+      <button id="btn-logout" class="btn danger small">Cerrar sesión</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <aside class="sidebar">
+      <div class="profile-card">
+        <div class="profile-photo" id="admin-photo">
+          <img src="/assets/avatar-placeholder.png" alt="foto admin" />
+        </div>
+        <div class="profile-info">
+          <h2 id="admin-name">Nombre Administrador</h2>
+          <p id="admin-role">Administrador</p>
+          <label class="change-photo">
+            Cambiar foto
+            <input id="photo-input" type="file" accept="image/*" hidden />
+          </label>
+        </div>
+      </div>
+
+      <nav class="menu">
+        <button class="menu-item active" data-section="users">Usuarios</button>
+        <button class="menu-item" data-section="settings">Ajustes</button>
+        <button class="menu-item" data-section="logs">Registros</button>
+      </nav>
+    </aside>
+
+    <section class="content">
+      <!-- USERS SECTION -->
+      <section id="section-users" class="section active">
+        <div class="section-header">
+          <h2>Usuarios</h2>
+          <div>
+            <input id="search" placeholder="Buscar por nombre o correo" />
+            <button id="btn-refresh" class="btn">Actualizar</button>
+          </div>
+        </div>
+
+        <table class="users-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Foto</th>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Rol</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="users-tbody">
+            <!-- rows dinámicos -->
+          </tbody>
+        </table>
+      </section>
+
+      <!-- SETTINGS PLACEHOLDER -->
+      <section id="section-settings" class="section">
+        <h2>Ajustes del Panel</h2>
+        <p>Opciones generales aquí (tema, notificaciones, etc.)</p>
+      </section>
+
+      <!-- LOGS PLACEHOLDER -->
+      <section id="section-logs" class="section">
+        <h2>Registros</h2>
+        <p>Registro de cambios y acciones administrativas.</p>
+      </section>
+    </section>
+  </main>
+
+  <!-- Edit Modal -->
+  <div id="edit-modal" class="modal hidden">
+    <div class="modal-content">
+      <header>
+        <h3>Editar usuario</h3>
+        <button id="close-modal" class="btn close">&times;</button>
+      </header>
+
+      <form id="edit-form">
+        <input type="hidden" name="id" id="user-id" />
+        <label>
+          Nombre
+          <input type="text" id="user-name" name="name" required />
+        </label>
+        <label>
+          Correo
+          <input type="email" id="user-email" name="email" required />
+        </label>
+        <label>
+          Rol
+          <select id="user-role" name="role">
+            <option value="admin">Admin</option>
+            <option value="empleado">Empleado</option>
+            <option value="cliente">Cliente</option>
+          </select>
+        </label>
+        <label>
+          Nueva contraseña (opcional)
+          <input type="password" id="user-password" name="password" />
+        </label>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn primary">Guardar</button>
+          <button type="button" id="cancel-edit" class="btn">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  
+
+  <script src="admin.js"></script>
+</body>
+</html>

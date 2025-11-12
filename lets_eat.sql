@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2025 a las 16:54:58
+-- Tiempo de generación: 12-11-2025 a las 12:14:43
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -31,7 +31,7 @@ CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `usuario` varchar(50) NOT NULL,
   `contrasena` varchar(255) NOT NULL,
-  `tipo` enum('profesor','profesor_acargo','estudiante','estudiante_ampm') NOT NULL,
+  `tipo` enum('profesor','profesor_acargo','estudiante','estudiante_ampm','Administrador') NOT NULL,
   `nombre` varchar(100) DEFAULT NULL,
   `Foto` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -41,7 +41,6 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `usuario`, `contrasena`, `tipo`, `nombre`, `Foto`) VALUES
-(1, '1045867923', '1045867923t', 'profesor', 'Mariana Torres Vélez', 'img_perfil/Rochelle.jpeg'),
 (2, '1012345789', '1012345789p', 'profesor_acargo', 'Juan Pablo Restrepo', 'img_perfil/sergio.jpeg'),
 (3, '1056789231', '1056789231s', 'estudiante', 'Camila Soto Arango', 'img_perfil/chaval.jpeg'),
 (4, '1089234567', '1089234567f', 'estudiante_ampm', 'Andrés Felipe Muñoz', 'img_perfil/africa.jpeg'),
@@ -58,7 +57,8 @@ INSERT INTO `usuarios` (`id`, `usuario`, `contrasena`, `tipo`, `nombre`, `Foto`)
 (16, '1002223334', '1002223334g', 'estudiante_ampm', 'Gabriel Salazar', 'img_perfil/nicolas.jpeg'),
 (17, '1003334445', '1003334445z', 'estudiante_ampm', 'Zulma Cárdenas', 'img_perfil/nina.jpeg'),
 (18, '1004445556', '1004445556h', 'estudiante_ampm', 'Héctor Morales', 'img_perfil/pobre.jpeg'),
-(19, '20251001', '20251001m', 'estudiante', 'Mariana López Ruiz', 'img_perfil/isabella.jpeg');
+(21, '1098273465', '1098273465f', 'Administrador', 'María Fernanda Gómez ', 'img_perfil/thomasa.jpg'),
+(22, '3054128790', '3054128790s', 'Administrador', 'Juan Sebastián Martínez', 'img_perfil/Thomas.jpg');
 
 --
 -- Índices para tablas volcadas
@@ -79,7 +79,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Perfil Administrador | Let's Eat</title>
   <link rel="stylesheet" href="/css/administrador.css" />
-
 </head>
 
 <body>
@@ -33,60 +32,6 @@
       </div>
     </div>
   </div>
-  <!-- === PANEL DE ADMINISTRADOR === -->
-  <main class="panel-admin">
-    <h2 class="titulo-admin">Gestión de Usuarios</h2>
-
-    <section class="tabla-container">
-      <table id="tablaUsuarios">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Usuario</th>
-            <th>Contraseña</th>
-            <th>Tipo</th>
-            <th>Nombre</th>
-            <th>Foto</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Los datos se llenan con JS -->
-        </tbody>
-      </table>
-    </section>
-
-    <!-- Modal para editar usuario -->
-    <div id="modalEditar" class="modal">
-      <div class="modal-contenido">
-        <h3>Editar Usuario</h3>
-        <form id="formEditar">
-          <input type="hidden" id="editId">
-
-          <label>Usuario</label>
-          <input type="text" id="editUsuario" required>
-
-          <label>Contraseña</label>
-          <input type="text" id="editContrasena" required>
-
-          <label>Tipo</label>
-          <input type="text" id="editTipo" required>
-
-          <label>Nombre</label>
-          <input type="text" id="editNombre" required>
-
-          <label>Foto</label>
-          <input type="text" id="editFoto" required>
-
-          <div class="modal-btns">
-            <button type="submit" class="guardar">Guardar</button>
-            <button type="button" id="cancelar" class="cancelar">Cancelar</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </main>
-
 
   <script>
     const usuarioActual = localStorage.getItem("usuario");
@@ -119,6 +64,5 @@
   </script>
 
 
-  <script src="/js/admin.js"></script>
 
 </html>
